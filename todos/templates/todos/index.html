@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Meteorológica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color:  rgb(0, 0, 0);
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cáhuitl Estación Meteorológica</h1>
+        <p>Información en tiempo real de tus cultivos!</p>
+        <a href="../admin" class="btn btn-success" id="inicioSesion">Inicia Sesión  </a>
+
+
+        
+    </header>
+<div align="center">
+    <section>
+      <div class="spinner-border text-primary" role="status" id="spinner" style="display: none;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+        <h2>Condiciones Actuales</h2>
+        <p>Temperatura: 25°C</p>
+        <p>Humedad: 60%</p>
+        <p>Viento: 10 km/h</p>
+        <div align="center">
+        <img src=" https://rodaleinstitute.org/wp-content/uploads/FSTorganicBeans2010.jpg" height="200px" width="600" />
+      </div>
+    </section>
+  
+
+    <section>
+        <h2>Pronóstico</h2>
+        <p>Mañana: Soleado, máxima de 28°C</p>
+        <p>Próxima semana: Variación en las condiciones meteorológicas.</p>
+    </section>
+    <section>
+      <h2>Beneficios de tener una estacion meteorológica:</h2>
+      <p>Ayuda a los agricultores a planificar sus actividades agrícolas según
+         las condiciones climáticas. Esto incluye la siembra, cosecha, riego y otros aspectos relacionados con la gestión agrícola.</p>
+      <p>Facilita la gestión eficiente del agua al proporcionar información sobre las precipitaciones y la humedad del suelo. Esto es crucial para la gestión sostenible de recursos hídricos.</p>
+      <p>Puede contribuir a la creación de pronósticos meteorológicos locales más precisos, lo que es esencial para la toma de decisiones informadas en diversas áreas, desde la planificación de eventos hasta la gestión de desastres naturales.</p>
+      <p>Contribuye a la seguridad pública al proporcionar datos que pueden ayudar en la identificación y seguimiento de condiciones meteorológicas extremas, como tormentas, huracanes o inundaciones. Esto facilita la toma de medidas preventivas.</p>
+      <p>Permite una gestión más eficiente de la energía al proporcionar información sobre la radiación solar y la velocidad del viento, lo que es crucial para instalaciones de energía renovable como parques eólicos y solares.</p>
+      <div align="center">
+      <img src="https://floresnavarro.com/img/cms/DSC00559.jpg " height="200px" width="600" />
+    </div>
+  </section>
+  <section>
+    <h2>¡Compra una estación!</h2>
+    <form action="ejemplo.php" method="get">
+      <label class="form-label">Nombre: <input type="text" placeholder="Ingresa tu nombre" class="form-control col-auto" name="nombre" size="40"></label>
+      <label class="form-label">Dirección de correo electrónico: <input type="email" placeholder="Ingresa tu correo electronico" class="form-control col-auto" name="nacido" min="1900"></label>
+      <div >
+      <p>Sexo:
+        <input class="form-check-input" type="radio" name="hm" value="h"> Hombre
+        <input class="form-check-input" type="radio" name="hm" value="m"> Mujer
+      </p>
+    </div>
+      <p>
+        <input class="btn btn-primary" type="submit" value="Enviar">
+        <input class="btn btn-outline-danger" type="reset" value="Borrar">
+      </p>
+    </form>
+  </section>
+</div>
+</body>
+</html>
+<script>
+  document.getElementById('inicioSesion').addEventListener('click', function(event) {
+  event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+  
+  document.getElementById('spinner').style.display = 'block'; // Muestra el spinner
+  
+  // Simula una pausa antes de redirigir a la página de inicio de sesión
+  setTimeout(function() {
+    sessionStorage.setItem('regresoDesdeInicioSesion', 'true'); // Almacena la bandera en sessionStorage
+    window.location.href = event.target.href; // Redirige a la página de inicio de sesión
+  }, 1000); // Cambia este valor a la cantidad de tiempo deseada en milisegundos
+});
+
+// Comprueba si se regresó desde la página de inicio de sesión
+if (sessionStorage.getItem('regresoDesdeInicioSesion') === 'true') {
+  document.getElementById('spinner').style.display = 'none'; // Oculta el spinner si se regresó desde la página de inicio de sesión
+  sessionStorage.removeItem('regresoDesdeInicioSesion'); // Elimina la bandera para futuras visitas
+}
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
